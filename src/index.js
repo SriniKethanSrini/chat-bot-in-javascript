@@ -40,6 +40,7 @@ app.post("/signup", async (req, res) => {
         data.password = hashedPassword;
         const userdata = await collection.insertMany(data);
         console.log(userdata);
+        res.render("home");
     }
     const userdata = await collection.insertMany(data);
     console.log(userdata);
@@ -60,6 +61,11 @@ app.post("/signup", async (req, res) => {
         else {
             res.render("home");
         }
+
+
+
+
+
     }
     catch {
         res.send("wrong Details");}
