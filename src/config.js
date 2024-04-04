@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const connect = mongoose.connect("mongodb://localhost:27017/login-tut");
+const connect = mongoose.connect("mongodb+srv://smsrinikethan:secret@67@cluster0.wg2hzc9.mongodb.net/login-tut");
 
 // Check database connected or not
 connect.then(() => {
@@ -9,7 +9,7 @@ connect.then(() => {
     console.log("Database cannot be Connected");
 })
 
-// Create Schema
+// Create Schema mongodb://localhost:27017/login-tut 
 const Loginschema = new mongoose.Schema({
     name: {
         type:String,
