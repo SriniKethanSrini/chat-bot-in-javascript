@@ -9,7 +9,7 @@ connect.then(() => {
     console.log("Database cannot be Connected");
 })
 
-// Create Schema mongodb://localhost:27017/login-tut 
+// Create Schema mongodb://localhost:27017/login-tut    mongodb+srv://smsrinikethan:<password>@cluster0.wg2hzc9.mongodb.net/
 const Loginschema = new mongoose.Schema({
     name: {
         type:String,
