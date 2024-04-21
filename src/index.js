@@ -5,6 +5,7 @@ const bcrypt = require('bcrypt');
 
 const app = express();
 // convert data into json format
+
 app.use(express.json());
 // Static file
 

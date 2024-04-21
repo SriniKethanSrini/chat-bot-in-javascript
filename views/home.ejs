@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -20,9 +20,489 @@
     <h1 style="text-align: center;">Welcome to Home Page</h1>
     
 <!-- <a href="https://shorturl.at/fqJ34">link for government bot</a> -->
-<a href="https://t.ly/4g8G_"><p style="text-align:center">link for government chat bot</a>
+<!-- <a href="https://t.ly/4g8G_"><p style="text-align:center">link for government chat bot</a>
 
 
 
+</body>
+</html> --> -->
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Government Schemes in India</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Explore Indian Government Schemes</h1>
+    </header>
+    <main>
+        
+        <section id="education" class="category-section">
+            <h2>Education Schemes</h2>
+            <div class="scheme-list" id="educationSchemes">
+                <!-- Education schemes will be added dynamically here -->
+            </div>
+        </section>
+        <section id="health" class="category-section">
+            <h2>Health Schemes</h2>
+            <div class="scheme-list" id="healthSchemes">
+                <!-- Health schemes will be added dynamically here -->
+            </div>
+        </section>
+        <section id="loans" class="category-section">
+            <h2>Loans Schemes</h2>
+            <div class="scheme-list" id="loansSchemes">
+                <!-- Loans schemes will be added dynamically here -->
+            </div>
+        </section>
+        <section id="pension" class="category-section">
+            <h2>Pension Schemes</h2>
+            <div class="scheme-list" id="pensionSchemes">
+                <!-- Pension schemes will be added dynamically here -->
+            </div>
+        </section>
+        <section id="about" class="category-section  ">
+            <h2>About</h2>
+            <p>Welcome to our platform dedicated to exploring and understanding various government schemes in India.</p> Here, you can learn about schemes related to education, health, loans, pension, and more.</p>
+        </section>
+        <section id="government-blog" class="category-section hidden">
+            <h2>Government Blog</h2>
+            <p>Stay updated with the latest news and insights from the government by exploring our blog section.</p>
+        </section>
+    </main>
+
+    <!-- Buttons to toggle visibility of sections -->
+    <div class="toggle-sections">
+        <button id="showAboutBtn">About</button>
+        <button id="showGovernmentBlogBtn"> Government Blog</button>
+    </div>
+
+    <!-- Chatbot -->
+    <div class="chatbot-container">
+        <img src="chatbot.png" alt="Chatbot" id="chatbotBtn">
+        <div class="chatbot-content" id="chatbot">
+            <div class="chat-container" id="chatContainer">
+                <div class="chat-header">Government Chat</div>
+                <div class="chat-messages" id="chatDisplay"></div>
+                <input type="text" id="userInput" placeholder="Type your message...">
+                <button id="sendBtn">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <script>const educationSchemes = [
+        { name: "Scheme 1", description: "Description of Scheme 1" },
+        { name: "Scheme 2", description: "Description of Scheme 2" },
+        // Add more schemes
+    ];
+    
+    const healthSchemes = [
+        { name: "Scheme A", description: "Description of Scheme A" },
+        { name: "Scheme B", description: "Description of Scheme B" },
+        // Add more schemes
+    ];
+    
+    const loansSchemes = [
+        { name: "Loan Scheme X", description: "Description of Loan Scheme X" },
+        { name: "Loan Scheme Y", description: "Description of Loan Scheme Y" },
+        // Add more schemes
+    ];
+    
+    const pensionSchemes = [
+        { name: "Pension Scheme X", description: "Description of Pension Scheme X" },
+        { name: "Pension Scheme Y", description: "Description of Pension Scheme Y" },
+        // Add more schemes
+    ];
+    
+    async function fetchResponses() {
+        try {
+            const response = await fetch('responses.json'); // Assuming responses are stored in responses.json
+            const data = await response.json();
+            return data;
+        } catch (error) {
+            console.error('Error fetching JSON data:', error);
+            return {}; // Return empty object if there's an error
+        }
+    }
+    
+    // Function to populate schemes dynamically
+    function populateSchemes(category, schemes) {
+        const schemeList = document.getElementById(category + "Schemes");
+        schemeList.innerHTML = "";
+        schemes.forEach((scheme, index) => {
+            const schemeItem = document.createElement('div');
+            schemeItem.className = 'scheme';
+    
+            // Create anchor tag around the scheme name
+            const schemeNameLink = document.createElement('a');
+            schemeNameLink.textContent = scheme.name;
+            schemeNameLink.href = 'scheme-details.html'; // Default link to the scheme details page
+            schemeNameLink.title = scheme.description;
+    
+            // Create description paragraph
+            const description = document.createElement('p');
+            description.className = 'scheme-description';
+            description.textContent = scheme.description;
+            description.style.display = 'none';
+    
+            // Append scheme name and description to scheme item
+            schemeItem.appendChild(schemeNameLink);
+            schemeItem.appendChild(description);
+    
+            // Add event listener to scheme name link
+            schemeNameLink.addEventListener('click', (e) => {
+                e.preventDefault(); // Prevent default link behavior
+                // Dynamically change the link based on the scheme index
+                schemeNameLink.href = `scheme-details-${category.toLowerCase()}-${index + 1}.html`; // Assuming scheme details pages follow a naming convention
+                window.location.href = schemeNameLink.href; // Redirect to the individual scheme details page
+            });
+    
+            // Append scheme item to scheme list
+            schemeList.appendChild(schemeItem);
+        });
+    }
+    
+    // Function to toggle scheme description visibility
+    function toggleDescription(description) {
+        description.style.display = description.style.display === 'none' ? 'block' : 'none';
+    }
+    
+    // Populate schemes for each category
+    populateSchemes("education", educationSchemes);
+    populateSchemes("health", healthSchemes);
+    populateSchemes("loans", loansSchemes);
+    populateSchemes("pension", pensionSchemes);
+    
+    // Chatbot functionality
+    const chatbotBtn = document.getElementById('chatbotBtn');
+    const chatbot = document.getElementById('chatbot');
+    const chatContainer = document.getElementById('chatContainer');
+    const chatDisplay = document.getElementById('chatDisplay');
+    const userInput = document.getElementById('userInput');
+    const sendBtn = document.getElementById('sendBtn');
+    const usermessage=document.getElementById('usermessage');
+    const botmessage=document.getElementById('botmessage');
+    let chatbotVisible = false; // Flag to track chatbot visibility
+    
+    // Initially hide the chatbot container
+    chatbot.style.display = 'none';
+    
+    // Add event listener to show the chatbot when a specific key is pressed
+    document.addEventListener('keypress', (e) => {
+        if (e.key === 'c') { // Change 'c' to the desired key
+            chatbot.style.display = 'block';
+        }
+    });
+    
+    chatbotBtn.addEventListener('click', () => {
+        if (chatbotVisible) {
+            chatbot.style.display = 'none';
+            chatbotVisible = false;
+        } else {
+            chatbot.style.display = 'block';
+            chatbotVisible = true;
+        }
+    });
+    
+    sendBtn.addEventListener('click', () => {
+        sendMessage();
+    });
+    
+    userInput.addEventListener('keyup', (e) => {
+        if (e.keyCode === 13) {
+            sendMessage();
+        }
+    });
+    
+    async function sendMessage() {
+        const message = userInput.value.trim();
+        if (message === '') return;
+    
+        const userBubble = document.createElement('div');
+        userBubble.className = 'user-bubble';
+        userBubble.textContent = message;
+        chatDisplay.appendChild(userBubble);
+    
+        // Check for keywords related to redirection
+        if (message.toLowerCase().includes('call')) {
+            const botBubble = document.createElement('div');
+            botBubble.className = 'bot-bubble';
+            botBubble.textContent = "Redirecting you to a phone call...";
+            chatDisplay.appendChild(botBubble);
+            setTimeout(() => {
+                // Redirect to phone call functionality goes here
+                window.location.href = 'tel:6380666426';
+            }, 10000); // 10 seconds
+        } else if (message.toLowerCase().includes('email')) {
+            const botBubble = document.createElement('div');
+            botBubble.className = 'bot-bubble';
+            botBubble.textContent = "Redirecting you to email...";
+            chatDisplay.appendChild(botBubble);
+            setTimeout(() => {
+                // Redirect to email functionality goes here
+                window.location.href = 'mailto:smsrinikethan@gmail.com';
+            }, 10000); // 10 seconds
+        } else {
+            // Example response from JSON data
+            const response = await generateResponse(message); // Replace with your logic
+            const botBubble = document.createElement('div');
+            botBubble.className = 'bot-bubble';
+            botBubble.textContent = response;
+            chatDisplay.appendChild(botBubble);
+        }
+    
+        userInput.value = '';
+    
+        // If chatbot is not visible after the conversation, reset chat display
+        if (!chatbotVisible) {
+            resetChatDisplay();
+        }
+    }
+    
+    // Example function to generate chatbot response from JSON data
+    async function generateResponse(message) {
+        const responses = await fetchResponses();
+    
+        // Replace this logic with actual implementation to analyze JSON data and generate response
+        const defaultMessage = "I'm sorry, I didn't understand that. Can you please rephrase?";
+        message = message.toLowerCase();
+        for (const keyword in responses) {
+            if (message.includes(keyword)) {
+                return responses[keyword];
+            }
+        }
+        return defaultMessage;
+    }
+    
+    // Function to reset chat display after conversation ends
+    function resetChatDisplay() {
+        chatDisplay.innerHTML = ''; // Clear chat display
+    }
+    
+    document.addEventListener('DOMContentLoaded', function() {
+        const aboutSection = document.getElementById('about');
+        const governmentBlogSection = document.getElementById('government-blog');
+        const showAboutBtn = document.getElementById('showAboutBtn');
+        const showGovernmentBlogBtn = document.getElementById('showGovernmentBlogBtn');
+    
+        // Hide the about section initially
+        aboutSection.classList.add('hidden');
+    
+        showAboutBtn.addEventListener('click', function() {
+            // Toggle the visibility of the about section
+            aboutSection.classList.toggle('hidden');
+        });
+    
+        showGovernmentBlogBtn.addEventListener('click', function() {
+            governmentBlogSection.classList.toggle('hidden');
+        });
+    
+        // Redirect to government blog page
+        showGovernmentBlogBtn.addEventListener('click', function() {
+            window.location.href = 'https://www.tn.gov.in/ta/announcements/';
+        });
+    });</script>
+<style>body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('background.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+header {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+main {
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    margin: 20px;
+    position: relative; /* Added */
+}
+
+.category-section {
+    margin-bottom: 40px;
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+h2 {
+    color: #333;
+}
+
+.scheme-list {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.scheme {
+    background-color: #ff9800; /* Orange */
+    color: #fff;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Chatbot styles */
+.chatbot-container {
+    position: fixed;
+    bottom: 20px; /* Changed to bottom */
+    right: 20px; /* Changed to right */
+    z-index: 999;
+    display: flex;
+    align-items: center;
+}
+
+#chatbotBtn {
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+}
+
+.chatbot-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-right: 10px;
+}
+
+.chatbot-heading {
+    display: flex;
+    align-items: center;
+}
+
+.chatbot-heading img {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+.chatbot {
+    display: none;
+    position: absolute;
+    right: 0;
+    bottom: calc(100% + 20px);
+    width: 350px;
+    height: 400px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow: auto;
+    padding: 20px;
+}
+
+.chat-container {
+    margin-top: 10px;
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    padding: 10px;
+}
+
+.chat-header {
+    background-color: #2196f3;
+    color: #fff;
+    padding: 10px;
+    border-radius: 8px 8px 0 0;
+    margin: -10px -10px 10px -10px;
+    font-weight: bold;
+}
+
+.chat-messages {
+    max-height: 300px;
+    overflow-y: auto;
+    padding: 10px;
+}
+
+.user-bubble {
+    background-color: #d9d9d9;
+    color: #000;
+    padding: 8px 12px;
+    border-radius: 12px;
+    margin-bottom: 5px;
+    max-width: 70%;
+    word-wrap: break-word;
+}
+
+.bot-bubble {
+    background-color: #2196f3;
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 12px;
+    margin-bottom: 5px;
+    align-self: flex-end;
+    max-width: 70%;
+    word-wrap: break-word;
+}
+
+#userInput {
+    width: calc(100% - 70px);
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #e7e4e4;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+#sendBtn {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    background-color: #2196f3; 
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Align "About" and "Government Blog" sections */
+#about,
+#government-blog {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#government-blog {
+    top: calc(20px + 160px); /* Adjusted based on the height of the "About" section */
+}
+
+.hidden {
+    display: none;
+}
+
+
+/* Styles for the buttons */
+.toggle-sections {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+}
+
+.toggle-sections button {
+    margin-left: 10px;
+}</style>
+   
 </body>
 </html>
