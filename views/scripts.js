@@ -2,24 +2,34 @@
 const educationSchemes = [
     { name: "Scheme 1", description: "Description of Scheme 1" },
     { name: "Scheme 2", description: "Description of Scheme 2" },
-    // Add more schemes
+    {name: "Scheme 3", description: "Description of Scheme 3"},
+    {name: "Scheme 4", description: "Description of Scheme 4"},
+    {name: "Scheme 5", description: "Description of Scheme 5"}
+    
 ];
 
 const healthSchemes = [
-    { name: "Scheme A", description: "Description of Scheme A" },
-    { name: "Scheme B", description: "Description of Scheme B" },
-    // Add more schemes
+    { name: "Scheme 1", description: "Description of Scheme 1" },
+    { name: "Scheme 2", description: "Description of Scheme 2" },
+    {name: "Scheme 3", description: "Description of Scheme 3"},
+    {name: "Scheme 4", description: "Description of Scheme 4"},
+    {name: "Scheme 5", description: "Description of Scheme 5"}
 ];
 
 const loansSchemes = [
-    { name: "Loan Scheme X", description: "Description of Loan Scheme X" },
-    { name: "Loan Scheme Y", description: "Description of Loan Scheme Y" },
-    // Add more schemes
+    { name: " Scheme 1", description: "Description of Loan Scheme 1" },
+    { name: "Scheme 2 ", description: "Description of Loan Scheme 2" },
+    {name: "Scheme 3", description: "Description of Scheme 3"},
+    {name: "Scheme 4", description: "Description of Scheme 4"},
+    {name: "Scheme 5", description: "Description of Scheme 5"}
 ];
 
 const pensionSchemes = [
-    { name: "Pension Scheme X", description: "Description of Pension Scheme X" },
-    { name: "Pension Scheme Y", description: "Description of Pension Scheme Y" },
+    { name: "Scheme 1", description: "Description of Pension Scheme 2" },
+    { name: " Scheme 2", description: "Description of Pension Scheme 1" },
+    {name: "Scheme 3", description: "Description of Scheme 3"},
+    {name: "Scheme 4", description: "Description of Scheme 4"},
+    {name: "Scheme 5", description: "Description of Scheme 5"}
     // Add more schemes
 ];
 

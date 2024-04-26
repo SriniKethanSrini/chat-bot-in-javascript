@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sarva Shiksha Abhiyan Scheme Details ...</title>
+    <style>
+         body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        #scheme-details {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        h2 {
+            color: #4CAF50;
+        }
+
+        p {
+            margin-bottom: 10px;
+        }
+
+        /* Button Styles */
+        .button {
+            display: inline-block;
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #45a049;
+        }
+
+        /* Link Styles */
+        a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+        h3, h4 {
+            color: #4CAF50;
+        }
+
+        /* Button Styles */
+        .button {
+            display: inline-block;
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <header style="background-color: #4CAF50; color: #fff; padding: 20px; text-align: center;">
+        <h1>Sarva Shiksha Abhiyan Details</h1>
+    </header>
+    <main style="padding: 20px;">
+        <section id="scheme-details" class="category-section" style="background-color: #fff; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); padding: 20px;">
+            <h3>Description</h3>
+            <p>It's a flagship program for universalizing elementary education in India. Launched in 2001, its objective is to provide education to all children aged 6-14 years.</p>
+            <h4>How to apply</h4>
+        
+            
+     <p>1.)Identify SSA Schools: Find out which schools in your area are covered under the SSA program. You can inquire about this at the local education department office or check the official government education website for your state.
+
+        2.)Visit the School: Visit the SSA-covered school in your locality and meet with the school authorities. They will guide you on the admission process and provide you with the necessary information about enrollment requirements.
+        
+        3.)Admission Process: Follow the admission process prescribed by the school, which may include filling out an application form, providing necessary documents (such as birth certificate, address proof, etc.), and completing any other formalities required for enrollment.
+        
+        4.)Avail Benefits: Once enrolled in an SSA school, students can avail of various benefits provided under the SSA program, such as free textbooks, uniforms, and access to quality education.
+        
+        
+     <p>It's important for schools to stay updated on any announcements or updates related to the SSA scheme and comply with the guidelines provided by the government or educational authorities. <a href="https://www.india.gov.in/">"links for know more details.</a>
+        </section>
+        <a href="main_page.html" class="button">Back to All Scheme details</a>
+    </section>
+    </main>
+</body>
+</html>
